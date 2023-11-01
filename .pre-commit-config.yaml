@@ -1,0 +1,35 @@
+repos:
+  - repo: https://github.com/hadialqattan/pycln
+    rev: v2.2.2 # Possible releases: https://github.com/hadialqattan/pycln/releases
+    hooks:
+      - id: pycln
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.11.5
+    hooks:
+      - id: isort
+        files: "\\.(py)$"
+        args: [--settings-path=pyproject.toml]
+
+  - repo: https://github.com/psf/black
+    rev: 22.3.0
+    hooks:
+      - id: black
+        args: [--config=pyproject.toml]
+
+  # - repo: https://github.com/pre-commit/mirrors-mypy
+  #   rev: v0.782 # Do not update.
+  #   hooks:
+  #     - id: mypy
+  #       exclude: tests/data/
+  #       args: [--config-file=pyproject.toml]
+        
+# Run the Ruff linter.
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.1.3
+    hooks:
+      # Run the Ruff linter.
+      - id: ruff
+      # Run the Ruff formatter.
+      - id: ruff-format
