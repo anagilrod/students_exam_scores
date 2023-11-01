@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "students-exam-scores"
+version = "0.1.0"
+description = ""
+authors = ["anagilrod <anagilabertrodriguez93@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+pandas = "^2.1.2"
+black = "^23.10.1"
+ruff = "^0.1.3"
+mypy = "^1.6.1"
+pycln = "^2.3.0"
+isort = "^5.12.0"
+typed-ast = "^1.5.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
