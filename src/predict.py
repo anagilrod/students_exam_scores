@@ -8,18 +8,20 @@ model = joblib.load("src/ml_models/best_model.pkl")
 
 # Define a Pydantic model for the input features
 class InputData(BaseModel):
-    Gender: str
-    EthnicGroup: str
-    ParentEduc: str
-    LunchType: str
-    TestPrep: str
-    ParentMaritalStatus: str
-    PracticeSport: str
-    IsFirstChild: str
-    NrSiblings: float
-    TransportMeans: str
-    WklyStudyHours: str
+    gender: str
+    ethnicgroup: str
+    parenteduc: str
+    lunchtype: str
+    testprep: str
+    parentmaritalstatus: str
+    practicesport: str
+    isfirstchild: str
+    nrsiblings: float
+    transportmeans: str
+    wklystudyhours: str
 
+class Response(BaseModel):
+    prediction: float
 
 app = FastAPI()
 
@@ -31,17 +33,17 @@ def predict(data: InputData):
     # Convert the input data into a DataFrame with lowercase column names
     features = pd.DataFrame(
         {
-            "gender": [data.Gender],
-            "ethnicgroup": [data.EthnicGroup],
-            "parenteduc": [data.ParentEduc],
-            "lunchtype": [data.LunchType],
-            "testprep": [data.TestPrep],
-            "parentmaritalstatus": [data.ParentMaritalStatus],
-            "practicesport": [data.PracticeSport],
-            "isfirstchild": [data.IsFirstChild],
-            "nrsiblings": [data.NrSiblings],
-            "transportmeans": [data.TransportMeans],
-            "wklystudyhours": [data.WklyStudyHours],
+            "gender": [data.gender],
+            "ethnicgroup": [data.ethnicgroup],
+            "parenteduc": [data.parenteduc],
+            "lunchtype": [data.lunchtype],
+            "testprep": [data.testprep],
+            "parentmaritalstatus": [data.parentmaritalstatus],
+            "practicesport": [data.practicesport],
+            "isfirstchild": [data.isfirstchild],
+            "nrsiblings": [data.nrsiblings],
+            "transportmeans": [data.transportmeans],
+            "wklystudyhours": [data.wklystudyhours],
         }
     )
 
@@ -49,7 +51,7 @@ def predict(data: InputData):
     prediction = model.predict(features)
 
     # Return the prediction as a result
-    return {"prediction": prediction[0]}
+    return Response(prediction=prediction[0])
 
 
 if __name__ == "__main__":
