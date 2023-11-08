@@ -57,8 +57,14 @@ To deploy the model locally without Docker, follow these steps:
 1. Run the FASTAPI app using the command `make app_run`.
 2. Access the API at `http://localhost:8000/docs` to make predictions.
 
+
 To deploy the model locally using Docker, follow these steps:
 1. Run the FASTAPI app using the command `make docker_build_run`.
+2. Access the API at `http://localhost:8000/docs` to make predictions.
+
+
+To deploy the model locally using kubernetes, follow these steps:
+1. Run the kubernetes cluster using the command `make kubernetes_cluster`.
 2. Access the API at `http://localhost:8000/docs` to make predictions.
 
 <span style="color: #AC1555; font-weight: bold; font-size: 18px;">Usage of the API</span> 

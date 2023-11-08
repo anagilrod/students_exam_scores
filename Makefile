@@ -1,4 +1,8 @@
-run_app:
+init:
+	poetry shell
+	poetry install
+
+run_app: init
 	sh deploy/run_app.sh
 
 docker_build:
@@ -15,7 +19,6 @@ kubernetes_cluster: docker_build
 	kubectl apply -f deployment.yaml
 	kubectl apply -f service.yaml
 	kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.7/config/manifests/metallb-native.yaml
-
 
 kind_status:
 	kubectl get service students-exam-scores-service
