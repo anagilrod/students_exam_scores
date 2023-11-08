@@ -1,11 +1,11 @@
 
-# Students Exam Scores README
+<span style="color: #60B5FC; font-weight: bold; font-size: 24px;">Students Exam Scores README</span> 
 
-## Description of the Problem
+<span style="color: #AC1555; font-weight: bold; font-size: 18px;">Description of the Problem</span> 
 
 In this project, the primary objective is to **predict** the math test scores (**MathScore**) of students at a fictional public school based on various personal and socio-economic factors. The dataset used for this project includes scores from three test scores of students (MathScore, ReadingScore, and WritingScore) along with a variety of demographic and background information that may have interaction effects on the MathScore.
 
-### Dataset Overview
+<span style="color: #AC1555; font-weight: bold; font-size: 18px;">Dataset Overview</span> 
 
 The dataset is composed of the following columns:
 
@@ -24,13 +24,13 @@ The dataset is composed of the following columns:
 
 https://www.kaggle.com/datasets/desalegngeb/students-exam-scores/
 
-### Data Preprocessing
+<span style="color: #AC1555; font-weight: bold; font-size: 18px;">Data Preprocessing</span> 
 
 To tackle the problem of predicting MathScore, we first examined the dataset and identified that **ReadingScore and WritingScore** were highly correlated with MathScore. As a result, we decided to focus our efforts on predicting MathScore exclusively, removing the other two columns from the dataset.
 
 Additionally, data preprocessing steps were performed to handle missing values, encode categorical variables, and scale numerical features.
 
-### Objective
+<span style="color: #AC1555; font-weight: bold; font-size: 18px;">Objective</span> 
 
 The main goal of this project is to build a predictive model that can accurately **predict a student's MathScore** based on the provided features. By doing so, we aim to identify the key factors that influence a student's math performance and provide valuable insights to improve educational strategies.
 
@@ -39,22 +39,26 @@ In the subsequent sections of this README, we will describe the steps taken to a
 For a detailed overview of the data analysis, model development, deployment, and results, please refer to the corresponding sections in this README and the project's code and documentation.
 
 
-## Data Analysis (EDA)
+<span style="color: #AC1555; font-weight: bold; font-size: 18px;">Data Analysis (EDA)</span>
+
 The dataset used for this project includes customer information, subscription plan details, and historical interaction logs. Before building the model, we conducted an exploratory data analysis (EDA) to gain insights into the data. Key findings from the EDA are as follows:
-- See notebook 01_exploring_data_and_test_training.ipynb
-- See pdf with EDA
+- See notebook 01_exploring_data.ipynb
+- See pdf with EDA (/reports/report.html)
 
-## Model Generation
-We built a machine learning model to predict MathScore (see more in 02_model_training.ipynb)
+<span style="color: #AC1555; font-weight: bold; font-size: 18px;">Model Generation</span> 
 
-## Deployment
+We built a machine learning model to predict MathScore (see more in 02_running_different_models and 03_best_model_training)
+
+<span style="color: #AC1555; font-weight: bold; font-size: 18px;">Deployment</span> 
+
 The model is deployed using a FASTAPI.
 
 To deploy the model locally, follow these steps:
 1. Run the FASTAPI app using the command `uvicorn src.predict:app --host 0.0.0.0 --port 8000`.
 2. Access the API at `http://localhost:8000/docs` to make predictions.
 
-## Usage of the API
+<span style="color: #AC1555; font-weight: bold; font-size: 18px;">Usage of the API</span> 
+
 Send a POST request to the endpoint `/predict`. Include the customer data in the request body in JSON format. Here's an example request:
 
 ```json
@@ -67,7 +71,7 @@ Send a POST request to the endpoint `/predict`. Include the customer data in the
   "ParentMaritalStatus": "string",
   "PracticeSport": "string",
   "IsFirstChild": "string",
-  "NrSiblings": 10,
+  "NrSiblings": "float",
   "TransportMeans": "string",
   "WklyStudyHours": "string"
 }
