@@ -53,8 +53,12 @@ We built a machine learning model to predict MathScore (see more in 02_running_d
 
 The model is deployed using a FASTAPI.
 
-To deploy the model locally, follow these steps:
-1. Run the FASTAPI app using the command `uvicorn src.predict:app --host 0.0.0.0 --port 8000`.
+To deploy the model locally without Docker, follow these steps:
+1. Run the FASTAPI app using the command `make app_run`.
+2. Access the API at `http://localhost:8000/docs` to make predictions.
+
+To deploy the model locally using Docker, follow these steps:
+1. Run the FASTAPI app using the command `make docker_build_run`.
 2. Access the API at `http://localhost:8000/docs` to make predictions.
 
 <span style="color: #AC1555; font-weight: bold; font-size: 18px;">Usage of the API</span> 
@@ -67,15 +71,15 @@ curl -X 'POST' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-  "gender": "string",
-  "ethnicgroup": "string",
-  "parenteduc": "string",
-  "lunchtype": "string",
-  "testprep": "string",
-  "parentmaritalstatus": "string",
-  "practicesport": "string",
-  "isfirstchild": "string",
-  "nrsiblings": 0,
-  "transportmeans": "string",
-  "wklystudyhours": "string"
+  "gender": "female",
+  "ethnicgroup": "group A",
+  "parenteduc": "some college",
+  "lunchtype": "free/reduced",
+  "testprep": "none",
+  "parentmaritalstatus": "single",
+  "practicesport": "never",
+  "isfirstchild": "no",
+  "nrsiblings": 1.0,
+  "transportmeans": "school_bus",
+  "wklystudyhours": "> 10"
 }'

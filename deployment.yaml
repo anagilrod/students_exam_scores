@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: students-exam-scores-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: students-exam-scores
+  template:
+    metadata:
+      labels:
+        app: students-exam-scores
+    spec:
+      containers:
+      - name: students-exam-scores-container
+        image: studentsexamscores:latest
+        ports:
+        - containerPort: 8000
