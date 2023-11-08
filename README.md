@@ -61,17 +61,21 @@ To deploy the model locally, follow these steps:
 
 Send a POST request to the endpoint `/predict`. Include the customer data in the request body in JSON format. Here's an example request:
 
-```json
-{
-  "Gender": "string",
-  "EthnicGroup": "string",
-  "ParentEduc": "string",
-  "LunchType": "string",
-  "TestPrep": "string",
-  "ParentMaritalStatus": "string",
-  "PracticeSport": "string",
-  "IsFirstChild": "string",
-  "NrSiblings": "float",
-  "TransportMeans": "string",
-  "WklyStudyHours": "string"
-}
+```
+curl -X 'POST' \
+  'http://localhost:8000/predict/' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "gender": "string",
+  "ethnicgroup": "string",
+  "parenteduc": "string",
+  "lunchtype": "string",
+  "testprep": "string",
+  "parentmaritalstatus": "string",
+  "practicesport": "string",
+  "isfirstchild": "string",
+  "nrsiblings": 0,
+  "transportmeans": "string",
+  "wklystudyhours": "string"
+}'
